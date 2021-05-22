@@ -17,8 +17,6 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-
-
     //TODO процесс шифрования
     @Override
     protected void onCreate(Bundle savedInstanceState) {
