@@ -58,46 +58,6 @@ public class MenuActivity extends AppCompatActivity {
             txt3.setText(string);
         }
     }
-
-
-   /*class Kitty extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            txt3.setText("Hello");
-        }
-
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            String s1 = txt1.getText().toString();
-            String s2 = txt2.getText().toString();
-            int x1 = s1.length();
-            int x2 = s2.length();
-            String alphabet = "абвгдеёжзиклмнопрстуфхцчшщъыьэюя";
-            for (int i = 1; i <= x1; i++) {
-
-                for (int j = 1; j <= 33; j++) {
-
-                    if (s1.charAt(i) == alphabet.charAt(j)) {
-                        j = (j + x2);
-                        string.append(alphabet.charAt(j));
-                    }
-
-                }
-
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            txt3.setText(string);
-        }
-
-    }*/
 }
 
 
