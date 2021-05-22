@@ -1,4 +1,4 @@
-package finalproject;
+package com.example.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.cristmastree.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,10 +21,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bt1 = (Button)findViewById(R.id.bt1);
-        bt2 = (Button)findViewById(R.id.bt2);
-        bt3 = (Button)findViewById(R.id.bt3);
-        tx1 = (TextView)findViewById(R.id.textView);
+        bt1 = findViewById(R.id.bt1);
+        bt2 = findViewById(R.id.bt2);
+        bt3 = findViewById(R.id.bt3);
+        tx1 = findViewById(R.id.textView);
         bt1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

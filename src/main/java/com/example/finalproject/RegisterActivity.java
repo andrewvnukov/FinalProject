@@ -1,4 +1,4 @@
-package finalproject;
+package com.example.finalproject;
 
 import android.os.Bundle;
 import android.widget.Toast;

@@ -1,10 +1,9 @@
-package finalproject;
+package com.example.finalproject;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cristmastree.R;
 
 //TODO Авторизация
 
