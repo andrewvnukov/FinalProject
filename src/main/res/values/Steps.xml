@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Types">
+        <item>Шифр Цезаря</item>
+        <item>Литорея</item>
+        <item>Ещечто-то1</item>
+        <item>Еще что-то2</item>
+    </string-array>
+</resources>
