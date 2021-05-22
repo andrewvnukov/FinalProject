@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Шифр Цезаря</string>
+    <string name="WelcomeText">Добро пожаловать!</string>
+    <string name="Registration">Регистрация</string>
+    <string name="Autorization">Авторизация</string>
+    <string name="LikeGuest">Войти как гость</string>
+    <string name="Nickname">Введите никнейм</string>
+    <string name="Password">Введите пароль</string>
+    <string name="Spinner">Привет</string>
+    <string name="Email">Введите электронную почту</string>
+    <string name="EnterHere">Здесь</string>
+    <string name="WriteDown">Введите данные</string>
+    <string name="Coding">Шифрование</string>
+    <string name="ChooseType">Выберите способ шифрования</string>
+    <string name="keyCesar">Напишите ключ</string>
+
+
+</resources>
