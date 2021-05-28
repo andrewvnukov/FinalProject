@@ -3,20 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<!--TODO Внешний вид шифрования-->
+    android:layout_height="match_parent"
+    android:background="#D7FFD9">
+    <!--TODO Внешний вид шифрования-->
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="406dp"
+        android:layout_height="728dp"
+        android:background="#D7FFD9"
+        android:onClick="onMyButtonClick"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="294dp"
-        android:layout_height="58dp"
+        android:layout_width="396dp"
+        android:layout_height="88dp"
+        android:textAlignment="center"
+        android:textColor="#FF9800"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
-        tools:text="Введите данные" />
+        tools:text="Hi" />
 
     <Button
         android:id="@+id/button1"
@@ -27,24 +48,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793"
-        />
+        app:layout_constraintVertical_bias="0.765" />
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="334dp"
-        android:layout_height="174dp"
+        android:layout_width="344dp"
+        android:layout_height="61dp"
         android:ems="10"
         android:hint="@string/EnterHere"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:labelFor="@id/textView2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <EditText
         android:id="@+id/editText2"
@@ -62,16 +81,18 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+        android:layout_width="217dp"
+        android:layout_height="42dp"
         android:backgroundTint="@android:color/holo_blue_bright"
-        android:backgroundTintMode="src_atop"
+        android:backgroundTintMode="src_in"
         android:entries="@array/Types"
-        android:popupBackground="@android:color/holo_red_light"
+        android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
