@@ -14,13 +14,13 @@ import java.io.OutputStream;
 
 class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_PATH; // полный путь к базе данных
-    private static String DB_NAME = "cityinfo.db";
+    private static String DB_NAME = "info.db";
     private static final int SCHEMA = 1; // версия базы данных
     static final String TABLE = "users"; // название таблицы в бд
     // названия столбцов
     static final String COLUMN_ID = "_id";
     static final String COLUMN_NAME = "name";
-    static final String COLUMN_YEAR = "year";
+    static final String COLUMN_YEAR = "password";
     private Context myContext;
 
     DatabaseHelper(Context context) {
@@ -35,7 +35,6 @@ class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) { }
 
     void create_db(){
-
         InputStream myInput = null;
         OutputStream myOutput = null;
         try {
@@ -45,17 +44,14 @@ class DatabaseHelper extends SQLiteOpenHelper {
                 myInput = myContext.getAssets().open(DB_NAME);
                 // Путь к новой бд
                 String outFileName = DB_PATH;
-
                 // Открываем пустую бд
                 myOutput = new FileOutputStream(outFileName);
-
                 // побайтово копируем данные
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = myInput.read(buffer)) > 0) {
                     myOutput.write(buffer, 0, length);
                 }
-
                 myOutput.flush();
             }
         }
@@ -73,7 +69,10 @@ class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
     public SQLiteDatabase open()throws SQLException {
-
         return SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
+    }
+    public String openUser(String name)throws SQLException{
+        SQLiteDatabase.findEditTable(TABLE);
+        SQLiteDatabase.
     }
 }

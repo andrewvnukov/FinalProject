@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+class Viewer {
+
+}
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -18,7 +21,7 @@ public class MenuActivity extends AppCompatActivity {
     EditText txt1, txt2;
     TextView txt3;
     Spinner spinner;
-    
+
 
     void show (){
         txt1.setVisibility(View.GONE);

@@ -36,7 +36,9 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
+                String text = txt2.toString();
+                databaseHelper.open();
+                databaseHelper.openUser();
             }
         });{
         }
