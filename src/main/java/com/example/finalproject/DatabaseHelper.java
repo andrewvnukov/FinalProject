@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Objects;
 
 class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_PATH; // полный путь к базе данных
@@ -20,7 +21,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
     // названия столбцов
     static final String COLUMN_ID = "_id";
     static final String COLUMN_NAME = "name";
-    static final String COLUMN_YEAR = "password";
+    static final String COLUMN_PASS = "password";
     private Context myContext;
 
     DatabaseHelper(Context context) {
@@ -56,7 +57,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         catch(IOException ex){
-            Log.d("DatabaseHelper", ex.getMessage());
+            Log.d("DatabaseHelper", Objects.requireNonNull(ex.getMessage()));
         }
         finally {
             try{
@@ -64,15 +65,12 @@ class DatabaseHelper extends SQLiteOpenHelper {
                 if(myInput!=null) myInput.close();
             }
             catch(IOException ex){
-                Log.d("DatabaseHelper", ex.getMessage());
+                Log.d("DatabaseHelper", Objects.requireNonNull(ex.getMessage()));
             }
         }
     }
-    public SQLiteDatabase open()throws SQLException {
-        return SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
+    public void open()throws SQLException {
+        SQLiteDatabase.openDatabase(DB_PATH, null, SQLiteDatabase.OPEN_READWRITE);
     }
-    public String openUser(String name)throws SQLException{
-        SQLiteDatabase.findEditTable(TABLE);
-        SQLiteDatabase.
-    }
+
 }
