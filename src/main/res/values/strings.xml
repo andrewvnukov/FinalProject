@@ -13,6 +13,7 @@
     <string name="Coding">Шифрование</string>
     <string name="ChooseType">Выберите способ шифрования</string>
     <string name="keyCesar">Напишите ключ</string>
+    <string name="RepeatPassword">Повторите ваш пароль</string>
 
 
 </resources>

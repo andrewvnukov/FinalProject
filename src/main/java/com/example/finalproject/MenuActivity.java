@@ -5,35 +5,46 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RemoteViews;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-class Viewer {
-
-}
-
 public class MenuActivity extends AppCompatActivity {
 
-    Button bt1, bt2;
+    Button bt1;
     EditText txt1, txt2;
     TextView txt3;
     Spinner spinner;
 
 
-    void show (){
+    void show() {
         txt1.setVisibility(View.GONE);
         txt2.setVisibility(View.GONE);
         bt1.setVisibility(View.GONE);
         spinner.setVisibility(View.GONE);
-        bt2.setVisibility(View.INVISIBLE);
-        bt2.setClickable(true);
         txt3.setVisibility(View.VISIBLE);
+        txt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txt1.setVisibility(View.VISIBLE);
+                bt1.setVisibility(View.VISIBLE);
+                spinner.setVisibility(View.VISIBLE);
+                txt3.setVisibility(View.GONE);
+                String selected = spinner.getSelectedItem().toString();
+                switch (selected) {
+                    case "Шифр Цезаря":
+                        txt2.setVisibility(View.VISIBLE);
+                        break;
+                    case "Литорея":
+                        txt2.setVisibility(View.GONE);
+                        break;
+                }
+            }
+        });
     }
 
-    //TODO процесс шифрования
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,32 +52,13 @@ public class MenuActivity extends AppCompatActivity {
 
 
         bt1 = findViewById(R.id.button1);
-        bt2 = (Button) findViewById(R.id.button3);
         txt1 = findViewById(R.id.editText1);
         txt2 = findViewById(R.id.editText2);
         txt3 = findViewById(R.id.textView2);
         spinner = findViewById(R.id.spinner);
 
-        txt2.setVisibility(View.GONE);
-        bt2.setVisibility(View.GONE);
-
-        bt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                txt1.setVisibility(View.VISIBLE);
-                txt2.setVisibility(View.VISIBLE);
-                bt1.setVisibility(View.VISIBLE);
-                spinner.setVisibility(View.VISIBLE);
-                bt2.setVisibility(View.GONE);
-                txt3.setVisibility(View.GONE);
-            }
-        });
-
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            public void onItemSelected(AdapterView<?> parent,
-                                       View itemSelected, int selectedItemPosition, long selectedId) {
-
+            public void onItemSelected(AdapterView<?> parent, View itemSelected, int selectedItemPosition, long selectedId) {
                 String choose = spinner.getSelectedItem().toString();
                 if (choose.equals("Шифр Цезаря")) txt2.setVisibility(View.VISIBLE);
                 else txt2.setVisibility(View.GONE);
@@ -79,32 +71,38 @@ public class MenuActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (txt1.getText().toString().trim().equals("")) {
-                    bt2.setText("Строка пустая, попробуйте еще раз.");
+                StringBuilder string = new StringBuilder();
+                String s1 = txt1.getText().toString();
+                int x1 = s1.trim().length();
+                if ((txt1.getText().toString().trim().equals("")) || x1 == 0) {
+                    show();
+                    txt3.setText("Строка пустая, попробуйте еще раз.");
 
                 } else {
                     String selected = spinner.getSelectedItem().toString();
-                    StringBuilder string = new StringBuilder();
-                    String s1 = txt1.getText().toString();
-                    int x1 = s1.trim().length();
+
 
                     switch (selected) {
                         case "Шифр Цезаря":
-                            txt2.setVisibility(View.VISIBLE);
                             String s2 = txt2.getText().toString();
                             int x2 = Integer.parseInt(s2.trim());
                             String alf = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
                             for (int i = 0; i < x1; i++) {
                                 if (s1.charAt(i) == ' ')
                                     string.append(" ");
-                                else{
-                                for (int j = 0; j < 33; j++) {
-                                    if (s1.charAt(i) == alf.charAt(j))
-                                        string.append(alf.charAt((j + x2) % 33));
-                                }}
+                                else {
+                                    for (int j = 0; j < 33; j++) {
+                                        if (s1.charAt(i) == alf.charAt(j))
+                                            string.append(alf.charAt((j + x2) % 33));
+                                    }
+                                }
                             }
+
                             show();
                             txt3.setText(string);
+                            s2 = txt3.getText().toString();
+                            if (s2.trim().length() != x1)
+                                txt3.setText("Этот язык пока что разрабатывается");
                             break;
                         case "Литорея":
                             String consonants = "бвгджзклмнщшчцхфтсрп";
@@ -118,7 +116,10 @@ public class MenuActivity extends AppCompatActivity {
                                     string.append(s1.charAt(i));
                             }
                             show();
+                            s2 = txt3.getText().toString();
                             txt3.setText(string);
+                            if (s2.trim().length() != x1)
+                                txt3.setText("Этот язык пока что разрабатывается");
                             break;
                     }
                 }

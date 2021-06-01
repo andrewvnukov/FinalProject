@@ -3,7 +3,5 @@
     <string-array name="Types">
         <item>Шифр Цезаря</item>
         <item>Литорея</item>
-        <item>Ещечто-то1</item>
-        <item>Еще что-то2</item>
     </string-array>
 </resources>

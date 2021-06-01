@@ -16,15 +16,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         bt1 = findViewById(R.id.bt1);
         bt2 = findViewById(R.id.bt2);
         bt3 = findViewById(R.id.bt3);
         tx1 = findViewById(R.id.textView);
+
         bt1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

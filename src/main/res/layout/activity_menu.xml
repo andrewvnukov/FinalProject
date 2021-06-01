@@ -7,27 +7,11 @@
     android:background="#D7FFD9">
     <!--TODO Внешний вид шифрования-->
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="406dp"
-        android:layout_height="728dp"
-        android:background="#D7FFD9"
-        android:onClick="onMyButtonClick"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
-
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="396dp"
-        android:layout_height="88dp"
+        android:layout_width="414dp"
+        android:layout_height="733dp"
+        android:gravity="center"
         android:textAlignment="center"
         android:textColor="#FF9800"
         android:textSize="36sp"
@@ -38,17 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Hi" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Coding"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
 
     <EditText
         android:id="@+id/editText1"
@@ -78,6 +51,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.629" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Coding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.765" />
 
     <Spinner
         android:id="@+id/spinner"
