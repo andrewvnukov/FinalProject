@@ -136,8 +136,6 @@ public class AutorizationActivity extends RegisterActivity {
                         else Toast.makeText(getBaseContext(), "Неправильный код восстановления", Toast.LENGTH_LONG).show();
                     }
                 });
-
-
             }
         });
         bt3.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +147,5 @@ public class AutorizationActivity extends RegisterActivity {
                 onStop();
             }
         });
-
     }
 }

@@ -110,10 +110,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (password == password1) {
                                     for (int i = 0; i < 8; i++) {
                                         if (random.nextBoolean())
-                                            secretCode.append(alphabet.charAt(random.nextInt(9)));
-                                        else
-                                            secretCode.append(random.nextInt(9));
-                                    }
+                                            secretCode.append(alphabet.charAt(random.nextInt(9)));else
+                                            secretCode.append(random.nextInt(9)); }
                                     editor.putString(APP_PREFERENCES_NAME, etxt1.getText().toString());
                                     editor.putInt(APP_PREFERENCES_PASSWORD, password);
                                     editor.putString(APP_PREFERENCES_CODE, String.valueOf(secretCode));

@@ -126,22 +126,20 @@ public class MenuActivity extends AppCompatActivity {
                                 txt3.setText("Этот язык пока что разрабатывается");
 
                             break;
-                        case "Литорея":
+                       case "Литорея":
                             String consonants = "бвгджзклмнщшчцхфтсрп";
                             String vowels = "аеёиоуыюяьъйэ";
                             for (int i = 0; i < x1; i++) {
                                 for (int j = 0; j < 20; j++) {
                                     if (s1.charAt(i) == consonants.charAt(j))
-                                        string.append(consonants.charAt((j + 10) % 20));
-                                }
+                                        string.append(consonants.charAt((j + 10) % 20)); }
                                 if (vowels.indexOf(s1.charAt(i)) != -1)
                                     string.append(s1.charAt(i));
                             }
                             show();
                             s2 = txt3.getText().toString();
                             txt3.setText(string);
-                            if (s2.trim().length() != x1)
-                                txt3.setText("Этот язык пока что разрабатывается");
+                            if (s2.trim().length() != x1) txt3.setText("Этот язык пока что разрабатывается");
                             break;
                     }
                 }
