@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -63,7 +64,6 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
         bt1 = findViewById(R.id.button1);
         txt1 = findViewById(R.id.editText1);
         txt2 = findViewById(R.id.editText2);
@@ -88,19 +88,24 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 StringBuilder string = new StringBuilder();
+                String selected = spinner.getSelectedItem().toString();
                 String s1 = Objects.requireNonNull(etxt1.getText()).toString();
                 int x1 = s1.trim().length();
-                if ((etxt1.getText().toString().trim().equals("")) || etxt2.getText().toString().trim().equals("")) {
-                    show();
-                    txt3.setText("Строка пустая, попробуйте еще раз.");
+                if (selected.equals("Шифр Цезаря") && (etxt1.getText().toString().trim().equals("")) || Objects.requireNonNull(etxt2.getText()).toString().trim().equals("")) {
 
-                } else {
-                    String selected = spinner.getSelectedItem().toString();
+                    show();
+                    txt3.setText("Строка пустая, попробуйте еще раз.");}
+                 else {
+                    if (selected.equals("Литорея") && etxt1.getText().toString().trim().equals("")) {
+                        show();
+                        txt3.setText("Строка пустая, попробуйте еще раз.");}
+                    else {
+
 
 
                     switch (selected) {
                         case "Шифр Цезаря":
-                            String s2 = etxt2.getText().toString();
+                            String s2 = Objects.requireNonNull(etxt2.getText()).toString();
                             int x2 = Integer.parseInt(s2.trim());
                             String alf = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
                             for (int i = 0; i < x1; i++) {
@@ -141,7 +146,7 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
+        }});
     }
 }
 

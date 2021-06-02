@@ -130,7 +130,6 @@ public class RegisterActivity extends AppCompatActivity {
                                         @Override
                                         public void onClick(View v) {
                                             txt1.setText("Запомните или запишите этот код на случай если забудете пароль:" + secretCode);
-                                            Toast.makeText(getBaseContext(), saver.getString(APP_PREFERENCES_CODE, ""), Toast.LENGTH_LONG).show();
                                             txt1.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {

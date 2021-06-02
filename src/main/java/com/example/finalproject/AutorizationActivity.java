@@ -45,7 +45,7 @@ public class AutorizationActivity extends RegisterActivity {
         bt1 = findViewById(R.id.button);
         bt2 = findViewById(R.id.button3);
         bt3 = findViewById(R.id.button4);
-        txt3.setTranslationY(-700);
+        txt3.setTranslationY(-500);
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +55,8 @@ public class AutorizationActivity extends RegisterActivity {
                     txt1.setVisibility(View.GONE);
                     txt2.setVisibility(View.GONE);
                     bt1.setVisibility(View.GONE);
+                    bt2.setVisibility(View.GONE);
+                    bt3.setVisibility(View.GONE);
                     txt3.setText("Вы успешно вошли!");
                     txt3.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -67,7 +69,7 @@ public class AutorizationActivity extends RegisterActivity {
                     });
 
                 } else {
-                    Toast.makeText(getBaseContext(), saver.getString(APP_PREFERENCES_NAME, ""), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Неправильное имя пользователя или пароль", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -75,25 +77,25 @@ public class AutorizationActivity extends RegisterActivity {
             @Override
             public void onClick(View v) {
 
-                txt1.setVisibility(View.GONE);
-                etxt2.setText("");
-                txt2.setTranslationY(200);
-                etxt2.setTextSize(30);
-                txt2.setHint("Код восстановления");
+                txt2.setVisibility(View.GONE);
+                txt1.setTranslationY(300);
+                etxt1.setText("");
+                txt1.setHint("Код восстановления");
                 bt2.setVisibility(View.GONE);
-                bt1.setTranslationY(300);
-                bt3.setTranslationY(300);
+
+                bt1.setTranslationY(100);
+                bt3.setTranslationY(100);
                 bt3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        txt1.setVisibility(View.VISIBLE);
-                        etxt2.setText("");
-                        txt2.setTranslationY(-200);
-                        txt2.setHint("Введите пароль");
-                        etxt2.setTextSize(24);
+                        txt2.setVisibility(View.VISIBLE);
+                        etxt1.setText("");
+                        txt1.setTranslationY(-40);
+                        txt1.setHint("Введите никнейм");
                         bt2.setVisibility(View.VISIBLE);
-                        bt1.setTranslationY(-300);
-                        bt3.setTranslationY(-300);
+                        bt1.setTranslationY(-100);
+                        bt3.setTranslationY(-100);
+                        bt1.setText("Авторизация");
                         txt3.setText("Авторизация");
                         bt3.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -113,11 +115,12 @@ public class AutorizationActivity extends RegisterActivity {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onClick(View v) {
-                        String str1 = Objects.requireNonNull(etxt2.getText()).toString();
-                        if (etxt2.getText().toString().trim().equals(saver.getString(APP_PREFERENCES_CODE, ""))) {
+                        if (Objects.requireNonNull(etxt1.getText()).toString().trim().equals(saver.getString(APP_PREFERENCES_CODE, ""))) {
                             txt2.setVisibility(View.GONE);
+                            txt1.setVisibility(View.GONE);
                             bt1.setVisibility(View.GONE);
-                            txt3.setTranslationY(200);
+                            bt3.setVisibility(View.GONE);
+                            txt3.setTranslationY(100);
                             txt3.setText("Ваш ник:\n" + saver.getString(APP_PREFERENCES_NAME, "")
                                     + "\n\n\nВаш пароль:\n" + saver.getInt(APP_PREFERENCES_PASSWORD, 0));
                             txt3.setOnClickListener(new View.OnClickListener() {
