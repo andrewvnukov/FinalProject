@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Шифр Цезаря</string>
+    <string name="app_name">CipherC</string>
     <string name="WelcomeText">Добро пожаловать!</string>
     <string name="Registration">Регистрация</string>
     <string name="Autorization">Авторизация</string>
@@ -14,6 +14,10 @@
     <string name="ChooseType">Выберите способ шифрования</string>
     <string name="keyCesar">Напишите ключ</string>
     <string name="RepeatPassword">Повторите ваш пароль</string>
+    <string name="Continue">Продолжить</string>
+    <string name="Cancel">Назад</string>
+    <string name="WriteText">Напишите текст</string>
+    <string name="Forgot">Забыли пароль или имя?</string>
 
 
 </resources>

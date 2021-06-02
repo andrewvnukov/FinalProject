@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,16 +15,20 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.theme.MaterialComponentsViewInflater;
+
 import java.util.Random;
 
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity  {
     public static final String APP_PREFERENCES_NAME = "name";
     public static final String APP_PREFERENCES_PASSWORD = "password";
     public static final String APP_PREFERENCES_CODE = "secretCode";
     SharedPreferences.Editor editor;
-    Button bt1;
-    EditText etxt1, etxt2, etxt2_1;
+    Button bt1, bt2;
+    EditText etxt1, etxt2, etxt3;
+    TextInputLayout edtxt1, edtxt2, edtxt3;
     TextView txt1;
     SharedPreferences saver;
 
@@ -35,9 +40,13 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reg);
 
         bt1 = findViewById(R.id.button2);
+        bt2 = findViewById(R.id.button4);
         etxt1 = findViewById(R.id.nickName1);
-        etxt2 = findViewById(R.id.password);
-        etxt2_1 = findViewById(R.id.password2);
+        etxt2 = findViewById(R.id.password1);
+        etxt3 = findViewById(R.id.repPassword1);
+        edtxt1 = findViewById(R.id.nickName);
+        edtxt2 = findViewById(R.id.password);
+        edtxt3 = findViewById(R.id.repPassword);
         txt1 = findViewById(R.id.textView3);
         txt1.setVisibility(View.GONE);
 
@@ -45,15 +54,27 @@ public class RegisterActivity extends AppCompatActivity {
         final Random random = new Random();
         final Boolean bool;
 
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i;
+                i = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(i);
+                onStop();
+            }
+        });
         bt1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                if ((!etxt3.getText().toString().trim().equals(""))
+                        && (!etxt3.getText().toString().trim().equals(""))
+                        && (!etxt1.getText().toString().trim().equals(""))){
                 editor = saver.edit();
                 final StringBuilder secretCode = new StringBuilder();
                 String alphabet = "abcdefghijklmnopqrstuvwxyz";
                 int password = Integer.parseInt(etxt2.getText().toString());
-                int password1 = Integer.parseInt(etxt2_1.getText().toString());
+                int password1 = Integer.parseInt(etxt3.getText().toString());
                 if (password == password1) {
                     for (int i = 0; i < 8; i++) {
                         if (random.nextBoolean())
@@ -66,9 +87,10 @@ public class RegisterActivity extends AppCompatActivity {
                     editor.putString(APP_PREFERENCES_CODE, String.valueOf(secretCode));
                     editor.apply();
                     bt1.setVisibility(View.GONE);
-                    etxt1.setVisibility(View.GONE);
-                    etxt2.setVisibility(View.GONE);
-                    etxt2_1.setVisibility(View.GONE);
+                    bt2.setVisibility(View.GONE);
+                    edtxt1.setVisibility(View.GONE);
+                    edtxt2.setVisibility(View.GONE);
+                    edtxt3.setVisibility(View.GONE);
                     txt1.setVisibility(View.VISIBLE);
                     txt1.setText("Вы успешно зарегистрировались!");
                     txt1.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +114,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(getBaseContext(), "Повторите свой пароль правильно!", Toast.LENGTH_LONG).show();
-                }
+                }} else Toast.makeText(getBaseContext(), "Заполните все поля!", Toast.LENGTH_LONG).show();
 
             }
         });
