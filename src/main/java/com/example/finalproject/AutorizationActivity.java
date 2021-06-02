@@ -95,7 +95,15 @@ public class AutorizationActivity extends RegisterActivity {
                         bt1.setTranslationY(-300);
                         bt3.setTranslationY(-300);
                         txt3.setText("Авторизация");
-
+                        bt3.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i;
+                                i = new Intent(AutorizationActivity.this, MainActivity.class);
+                                startActivity(i);
+                                onStop();
+                            }
+                        });
                     }
                 });
                 bt1.setText("Восстановить доступ");

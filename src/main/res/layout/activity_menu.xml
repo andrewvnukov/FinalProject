@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FBB8AC">
+    android:background="#020202">
     <!--TODO Внешний вид шифрования-->
 
 
@@ -14,7 +14,7 @@
         android:layout_height="733dp"
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="#040404"
+        android:textColor="#FFFFFF"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,6 +22,7 @@
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Hi" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText2"
@@ -35,10 +36,10 @@
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.647"
+        app:layout_constraintVertical_bias="0.669"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -48,7 +49,6 @@
             android:inputType="text"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/editText1"
@@ -89,18 +89,20 @@
     <Spinner
         android:id="@+id/spinner"
         style="@style/Platform.Widget.AppCompat.Spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="212dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="28dp"
         android:background="#302F2F"
         android:backgroundTintMode="src_in"
         android:entries="@array/Types"
         android:scrollbarSize="24dp"
         android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText1"
+        app:layout_constraintVertical_bias="0.395" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

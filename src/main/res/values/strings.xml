@@ -18,6 +18,7 @@
     <string name="Cancel">Назад</string>
     <string name="WriteText">Напишите текст</string>
     <string name="Forgot">Забыли пароль или имя?</string>
+    <string name="Error">Это поле не может быть пустым</string>
 
 
 </resources>

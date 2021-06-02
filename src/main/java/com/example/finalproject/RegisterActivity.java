@@ -21,7 +21,7 @@ import com.google.android.material.theme.MaterialComponentsViewInflater;
 import java.util.Random;
 
 
-public class RegisterActivity extends AppCompatActivity  {
+public class RegisterActivity extends AppCompatActivity {
     public static final String APP_PREFERENCES_NAME = "name";
     public static final String APP_PREFERENCES_PASSWORD = "password";
     public static final String APP_PREFERENCES_CODE = "secretCode";
@@ -67,59 +67,95 @@ public class RegisterActivity extends AppCompatActivity  {
 
             @Override
             public void onClick(View v) {
-                if ((!etxt3.getText().toString().trim().equals(""))
-                        && (!etxt3.getText().toString().trim().equals(""))
-                        && (!etxt1.getText().toString().trim().equals(""))){
-                editor = saver.edit();
-                final StringBuilder secretCode = new StringBuilder();
-                String alphabet = "abcdefghijklmnopqrstuvwxyz";
-                int password = Integer.parseInt(etxt2.getText().toString());
-                int password1 = Integer.parseInt(etxt3.getText().toString());
-                if (password == password1) {
-                    for (int i = 0; i < 8; i++) {
-                        if (random.nextBoolean())
-                            secretCode.append(alphabet.charAt(random.nextInt(9)));
-                        else
-                            secretCode.append(random.nextInt(9));
+                if ((etxt3.getText().toString().trim().equals(""))) {
+                    TextInputLayout edNameLayout = (TextInputLayout) findViewById(R.id.repPassword);
+                    edNameLayout.setError(getResources().getString(R.string.Error));
+                    if ((etxt2.getText().toString().trim().equals(""))) {
+                        edNameLayout = (TextInputLayout) findViewById(R.id.password);
+                        edNameLayout.setError(getResources().getString(R.string.Error));
                     }
-                    editor.putString(APP_PREFERENCES_NAME, etxt1.getText().toString());
-                    editor.putInt(APP_PREFERENCES_PASSWORD, password);
-                    editor.putString(APP_PREFERENCES_CODE, String.valueOf(secretCode));
-                    editor.apply();
-                    bt1.setVisibility(View.GONE);
-                    bt2.setVisibility(View.GONE);
-                    edtxt1.setVisibility(View.GONE);
-                    edtxt2.setVisibility(View.GONE);
-                    edtxt3.setVisibility(View.GONE);
-                    txt1.setVisibility(View.VISIBLE);
-                    txt1.setText("Вы успешно зарегистрировались!");
-                    txt1.setOnClickListener(new View.OnClickListener() {
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onClick(View v) {
-                            txt1.setText("Запомните или запишите этот код на случай если забудете пароль:" + secretCode);
-                            Toast.makeText(getBaseContext(), saver.getString(APP_PREFERENCES_CODE, ""), Toast.LENGTH_LONG).show();
-                            txt1.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent i;
-                                    i = new Intent(RegisterActivity.this, MenuActivity.class);
-                                    startActivity(i);
-                                    onStop();
+                    if ((etxt1.getText().toString().trim().equals(""))) {
+                        edNameLayout = (TextInputLayout) findViewById(R.id.nickName);
+                        edNameLayout.setError(getResources().getString(R.string.Error));
+                    } }else {
+                        if ((etxt2.getText().toString().trim().equals(""))) {
+                            TextInputLayout edNameLayout = (TextInputLayout) findViewById(R.id.password);
+                            edNameLayout.setError(getResources().getString(R.string.Error));
+                            if ((etxt3.getText().toString().trim().equals(""))) {
+                                edNameLayout = (TextInputLayout) findViewById(R.id.repPassword);
+                                edNameLayout.setError(getResources().getString(R.string.Error));
+                            }
+                            if ((etxt1.getText().toString().trim().equals(""))) {
+                                edNameLayout = (TextInputLayout) findViewById(R.id.nickName);
+                                edNameLayout.setError(getResources().getString(R.string.Error));
+                            }
+                        } else {
+                            if ((etxt1.getText().toString().trim().equals(""))) {
+                                TextInputLayout edNameLayout = (TextInputLayout) findViewById(R.id.nickName);
+                                edNameLayout.setError(getResources().getString(R.string.Error));
+                             if ((etxt2.getText().toString().trim().equals(""))) {
+                                    edNameLayout = (TextInputLayout) findViewById(R.id.password);
+                                    edNameLayout.setError(getResources().getString(R.string.Error));
                                 }
-                            });
+                                if ((etxt1.getText().toString().trim().equals(""))) {
+                                    edNameLayout = (TextInputLayout) findViewById(R.id.nickName);
+                                    edNameLayout.setError(getResources().getString(R.string.Error));
+                                }
+                            } else {
+                                editor = saver.edit();
+                                final StringBuilder secretCode = new StringBuilder();
+                                String alphabet = "abcdefghijklmnopqrstuvwxyz";
+                                int password = Integer.parseInt(etxt2.getText().toString());
+                                int password1 = Integer.parseInt(etxt3.getText().toString());
+                                if (password == password1) {
+                                    for (int i = 0; i < 8; i++) {
+                                        if (random.nextBoolean())
+                                            secretCode.append(alphabet.charAt(random.nextInt(9)));
+                                        else
+                                            secretCode.append(random.nextInt(9));
+                                    }
+                                    editor.putString(APP_PREFERENCES_NAME, etxt1.getText().toString());
+                                    editor.putInt(APP_PREFERENCES_PASSWORD, password);
+                                    editor.putString(APP_PREFERENCES_CODE, String.valueOf(secretCode));
+                                    editor.apply();
+                                    bt1.setVisibility(View.GONE);
+                                    bt2.setVisibility(View.GONE);
+                                    edtxt1.setVisibility(View.GONE);
+                                    edtxt2.setVisibility(View.GONE);
+                                    edtxt3.setVisibility(View.GONE);
+                                    txt1.setVisibility(View.VISIBLE);
+                                    txt1.setText("Вы успешно зарегистрировались!");
+                                    txt1.setOnClickListener(new View.OnClickListener() {
+                                        @SuppressLint("SetTextI18n")
+                                        @Override
+                                        public void onClick(View v) {
+                                            txt1.setText("Запомните или запишите этот код на случай если забудете пароль:" + secretCode);
+                                            Toast.makeText(getBaseContext(), saver.getString(APP_PREFERENCES_CODE, ""), Toast.LENGTH_LONG).show();
+                                            txt1.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    Intent i;
+                                                    i = new Intent(RegisterActivity.this, MenuActivity.class);
+                                                    startActivity(i);
+                                                    onStop();
+                                                }
+                                            });
+                                        }
+                                    });
+
+
+                                } else {
+                                    Toast.makeText(getBaseContext(), "Повторите свой пароль правильно!", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
                         }
-                    });
+                    }
+                }
+            });
 
-
-                } else {
-                    Toast.makeText(getBaseContext(), "Повторите свой пароль правильно!", Toast.LENGTH_LONG).show();
-                }} else Toast.makeText(getBaseContext(), "Заполните все поля!", Toast.LENGTH_LONG).show();
-
-            }
-        });
+        }
     }
-}
 
 
 
