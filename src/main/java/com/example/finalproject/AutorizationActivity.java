@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 
 //TODO Авторизация
@@ -32,27 +35,30 @@ public class AutorizationActivity extends RegisterActivity {
         txt3 = findViewById(R.id.textView7);
         bt1 = findViewById(R.id.button);
         txt3.setVisibility(View.GONE);
-        bt1.setOnClickListener(new View.OnClickListener() {
 
+        bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (saver.contains(txt1.toString()) && saver.contains(txt2.toString())) {
+
+                if (Objects.equals(saver.getString(APP_PREFERENCES_NAME, ""), txt1.getText().toString()) && Objects.equals(saver.getInt(APP_PREFERENCES_PASSWORD, 0), Integer.parseInt(txt2.getText().toString()))){
                     txt1.setVisibility(View.GONE);
                     txt2.setVisibility(View.GONE);
                     bt1.setVisibility(View.GONE);
-                    txt3.setText("Вы успешно вошли!");
                     txt3.setVisibility(View.VISIBLE);
-                    try {
-                        Thread.sleep(4000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Intent i;
-                    i = new Intent(AutorizationActivity.this, MenuActivity.class);
-                    startActivity(i);
-                    onStop();
+                    txt3.setText("Вы успешно вошли!");
+                    txt3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i;
+                            i = new Intent(AutorizationActivity.this, MenuActivity.class);
+                            startActivity(i);
+                            onStop();
+                        }
+                    });
 
-                } else {Toast.makeText(getBaseContext(), "Неправильно указан пароль или имя пользователя", Toast.LENGTH_LONG).show();}
+                } else {
+                    Toast.makeText(getBaseContext(), saver.getString(APP_PREFERENCES_NAME, ""), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

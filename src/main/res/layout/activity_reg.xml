@@ -19,20 +19,14 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="410dp"
-        android:layout_height="361dp"
+        android:layout_width="408dp"
+        android:layout_height="239dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:text="@string/Nickname" />
 
         <EditText
             android:id="@+id/nickName1"
@@ -43,12 +37,6 @@
             android:importantForAutofill="no"
             android:inputType="textPersonName" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:text="@string/Password" />
-
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
@@ -57,12 +45,6 @@
             android:hint="@string/Password"
             android:importantForAutofill="no"
             android:inputType="numberPassword" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="@string/RepeatPassword" />
 
         <EditText
             android:id="@+id/password2"
@@ -77,12 +59,18 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="207dp"
-        android:layout_height="68dp"
+        android:layout_width="411dp"
+        android:layout_height="732dp"
+        android:gravity="center"
+        android:textColor="#CCA96D"
+        android:textSize="45sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Hello"
+        tools:visibility="visible" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
