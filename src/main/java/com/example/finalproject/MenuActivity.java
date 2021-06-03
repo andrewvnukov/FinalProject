@@ -114,7 +114,7 @@ public class MenuActivity extends AppCompatActivity {
                                 else {
                                     for (int j = 0; j < 33; j++) {
                                         if (s1.charAt(i) == alf.charAt(j))
-                                            string.append(alf.charAt((j + x2) % 33));
+                                            string.append(alf.charAt((j + x2 + 33) % 33));
                                     }
                                 }
                             }
